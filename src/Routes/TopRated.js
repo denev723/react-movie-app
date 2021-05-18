@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Home() {
+export default function Toprated() {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Top Rated</h1>
     </div>
   );
 }

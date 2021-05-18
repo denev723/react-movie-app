@@ -5,14 +5,14 @@ export default function Header() {
     <header>
       <ul>
         <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
           <a href="/movie">Movie</a>
         </li>
         <li>
           <a href="/tv">TV</a>
         </li>
+      </ul>
+      <h1>MOVIE APP</h1>
+      <ul>
         <li>
           <a href="/search">Search</a>
         </li>
