@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Popular() {
+export default function OnTheAir() {
   return (
     <div>
-      <h1>Popular</h1>
+      <h2>On The Air</h2>
     </div>
   );
 }

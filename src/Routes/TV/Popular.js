@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Toprated() {
+export default function Popular() {
   return (
     <div>
-      <h1>Top Rated</h1>
+      <h2>TV Popular</h2>
     </div>
   );
 }

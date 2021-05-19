@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Search() {
+export default function NowPlaying() {
   return (
     <div>
-      <h2>Search</h2>
+      <h2>Now Playing</h2>
     </div>
   );
 }

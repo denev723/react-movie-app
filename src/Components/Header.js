@@ -1,22 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header>
+    <div>
       <ul>
         <li>
-          <a href="/movie">Movie</a>
+          <Link to="/movies">Movies</Link>
         </li>
         <li>
-          <a href="/tv">TV</a>
+          <Link to="/tv">TV</Link>
         </li>
       </ul>
-      <h1>MOVIE APP</h1>
-      <ul>
-        <li>
-          <a href="/search">Search</a>
-        </li>
-      </ul>
-    </header>
+      <h1>Movie App</h1>
+      <Link to="/search">Search</Link>
+    </div>
   );
 }

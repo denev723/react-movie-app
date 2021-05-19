@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function TV() {
+export default function TopRated() {
   return (
     <div>
-      <h1>TV</h1>
+      <h2>TV Top Rated</h2>
     </div>
   );
 }
