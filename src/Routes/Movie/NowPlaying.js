@@ -7,21 +7,22 @@ export default function NowPlaying() {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const {
+        data: { results: movies },
+      } = await movieApi.nowPlaying();
+      console.log(movies);
+      setMovies(movies);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const {
-          data: { results: movies },
-        } = await movieApi.nowPlaying();
-        console.log(movies);
-        setMovies(movies);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchData();
   }, []);
   if (loading) return <Loader />;

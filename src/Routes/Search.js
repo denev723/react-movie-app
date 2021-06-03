@@ -3,7 +3,10 @@ import React from "react";
 export default function Search() {
   return (
     <div>
-      <h2>Search</h2>
+      <form>
+        <input type="text" placeholder="검색어를 입력하세요.." />
+        <button type="submit">검색</button>
+      </form>
     </div>
   );
 }
