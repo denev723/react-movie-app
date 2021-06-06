@@ -27,7 +27,6 @@ export default function AiringToday() {
   if (loading) return <Loader />;
   if (error) return <div>불러오기 중 에러가 발생했습니다.{error}</div>;
   if (!dramas) return null;
-  console.log(dramas);
   return (
     <div>
       {dramas.map((drama) => (

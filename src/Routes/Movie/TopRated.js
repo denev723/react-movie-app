@@ -13,7 +13,6 @@ export default function TopRated() {
       const {
         data: { results: movies },
       } = await movieApi.topRated();
-      console.log(movies);
       setMovies(movies);
     } catch (error) {
       setError(error);

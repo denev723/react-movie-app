@@ -13,7 +13,6 @@ export default function Upcoming() {
       const {
         data: { results: movies },
       } = await movieApi.upcoming();
-      console.log(movies);
       setMovies(movies);
     } catch (error) {
       setError(error);

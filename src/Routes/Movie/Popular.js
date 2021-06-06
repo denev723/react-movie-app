@@ -13,7 +13,6 @@ function Popular() {
       const {
         data: { results: movies },
       } = await movieApi.popular();
-      console.log(movies);
       setMovies(movies);
     } catch (error) {
       setError(error);

@@ -13,7 +13,6 @@ export default function NowPlaying() {
       const {
         data: { results: movies },
       } = await movieApi.nowPlaying();
-      console.log(movies);
       setMovies(movies);
     } catch (error) {
       setError(error);

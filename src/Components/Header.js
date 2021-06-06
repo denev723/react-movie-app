@@ -25,7 +25,6 @@ const Item = styled.li`
   &:first-child {
     margin-right: 20px;
   }
-  display: block;
   padding: 10px 10px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -44,10 +43,22 @@ const Header = withRouter(({ location: { pathname } }) => {
     <Container>
       <Wrapper>
         <ItemWrapper>
-          <Item current={pathname === "/movies"}>
+          <Item
+            current={
+              pathname === "/movies" ||
+              pathname === "/movies/top-rated" ||
+              pathname === "/movies/popular" ||
+              pathname === "/movies/upcoming"
+            }>
             <Link to="/movies">Movies</Link>
           </Item>
-          <Item current={pathname === "/tv"}>
+          <Item
+            current={
+              pathname === "/tv" ||
+              pathname === "/tv/airing-today" ||
+              pathname === "/tv/top-rated" ||
+              pathname === "/tv/popular"
+            }>
             <Link to="/tv">TV</Link>
           </Item>
         </ItemWrapper>

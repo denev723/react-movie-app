@@ -1,29 +1,53 @@
 import React from "react";
-import { useRouteMatch, Link, Switch, Route } from "react-router-dom";
+import {
+  useRouteMatch,
+  Link,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
+import styled from "styled-components";
 import AiringToday from "./AiringToday";
 import OnTheAir from "./OnTheAir";
 import Popular from "./Popular";
 import TopRated from "./TopRated";
 
-function TV() {
+const Container = styled.div``;
+
+const ItemWrapper = styled.ul`
+  max-width: 960px;
+  height: 30px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+`;
+
+const Item = styled.li`
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+  border-bottom: 1px solid ${(props) => (props.current ? "blue" : "none")};
+  padding: 5px 5px;
+`;
+
+const TV = withRouter(({ location: { pathname } }) => {
   let { path, url } = useRouteMatch();
 
   return (
     <div>
-      <ul>
-        <li>
-          <Link to={`${url}/airing-today`}>Airing Today</Link>
-        </li>
-        <li>
-          <Link to={`${url}/top-rated`}>Top Rated</Link>
-        </li>
-        <li>
-          <Link to={`${url}/popular`}>Popular</Link>
-        </li>
-      </ul>
-
-      <hr />
-
+      <Container>
+        <ItemWrapper>
+          <Item current={pathname === `${url}/airing-today`}>
+            <Link to={`${url}/airing-today`}>Airing Today</Link>
+          </Item>
+          <Item current={pathname === `${url}/top-rated`}>
+            <Link to={`${url}/top-rated`}>Top Rated</Link>
+          </Item>
+          <Item current={pathname === `${url}/popular`}>
+            <Link to={`${url}/popular`}>Popular</Link>
+          </Item>
+        </ItemWrapper>
+      </Container>
       <Switch>
         <Route exact path={path}>
           <OnTheAir />
@@ -40,6 +64,6 @@ function TV() {
       </Switch>
     </div>
   );
-}
+});
 
 export default TV;
