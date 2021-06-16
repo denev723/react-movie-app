@@ -26,7 +26,7 @@ const Item = styled.li`
   &:not(:last-child) {
     margin-right: 15px;
   }
-  border-bottom: 1px solid ${(props) => (props.current ? "blue" : "none")};
+  border-bottom: 1.5px solid ${(props) => (props.current ? "#fafafa" : "none")};
   padding: 5px 5px;
 `;
 

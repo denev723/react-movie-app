@@ -1,6 +1,18 @@
 import { movieApi } from "api";
 import Loader from "Components/Loader";
 import React, { useEffect, useState } from "react";
+import Poster from "Components/Poster";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 960px;
+  margin: 0 auto;
+  grid-gap: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+`;
 
 export default function NowPlaying() {
   const [loading, setLoading] = useState(false);
@@ -28,18 +40,17 @@ export default function NowPlaying() {
   if (error) return <div>불러오기 중 에러가 발생했습니다.{error}</div>;
   if (!movies) return null;
   return (
-    <div>
+    <Container>
       {movies.map((movie) => (
-        <div key={movie.id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-            alt=""
-          />
-          <h3>{movie.title}</h3>
-          <p>{movie.release_date}</p>
-          <p>{movie.vote_average}</p>
-        </div>
+        <Poster
+          id={movie.id}
+          key={movie.id}
+          title={movie.title}
+          rating={movie.vote_average}
+          year={movie.release_date}
+          imageUrl={movie.poster_path}
+        />
       ))}
-    </div>
+    </Container>
   );
 }

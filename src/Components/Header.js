@@ -3,7 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #fafafa;
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
@@ -28,8 +29,8 @@ const Item = styled.li`
   padding: 10px 10px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background-color: ${(props) => (props.current ? "black" : "white")};
-  color: ${(props) => (props.current ? "white" : "black")};
+  background-color: ${(props) => (props.current ? "#fafafa" : "#37474f")};
+  color: ${(props) => (props.current ? "#000a12" : "#cfd8dc")};
   font-weight: ${(props) => (props.current ? "600" : "400")};
 `;
 

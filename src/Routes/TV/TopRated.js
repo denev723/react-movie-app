@@ -1,6 +1,18 @@
+import React, { useEffect, useState } from "react";
 import { tvApi } from "api";
 import Loader from "Components/Loader";
-import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Poster from "Components/Poster";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 960px;
+  margin: 0 auto;
+  grid-gap: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+`;
 
 export default function TopRated() {
   const [loading, setLoading] = useState(false);
@@ -28,18 +40,17 @@ export default function TopRated() {
   if (error) return <div>불러오기 중 에러가 발생했습니다.{error}</div>;
   if (!dramas) return null;
   return (
-    <div>
+    <Container>
       {dramas.map((drama) => (
-        <div key={drama.id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${drama.poster_path}`}
-            alt=""
-          />
-          <h3>{drama.name}</h3>
-          <p>{drama.first_air_date}</p>
-          <p>{drama.vote_average}</p>
-        </div>
+        <Poster
+          id={drama.id}
+          key={drama.id}
+          title={drama.name}
+          rating={drama.vote_average}
+          year={drama.first_air_date}
+          imageUrl={drama.poster_path}
+        />
       ))}
-    </div>
+    </Container>
   );
 }
