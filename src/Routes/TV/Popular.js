@@ -47,7 +47,7 @@ export default function Popular() {
           key={drama.id}
           title={drama.name}
           rating={drama.vote_average}
-          year={drama.first_air_date}
+          year={drama.first_air_date.substring(0, 4)}
           imageUrl={drama.poster_path}
         />
       ))}

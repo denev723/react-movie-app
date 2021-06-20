@@ -42,9 +42,15 @@ const Wrapper = styled.div`
 
 export default function Poster({ id, imageUrl, title, rating, year }) {
   return (
-    <Container key={id} bgUrl={`https://image.tmdb.org/t/p/w200/${imageUrl}`}>
+    <Container
+      key={id}
+      bgUrl={
+        imageUrl
+          ? `https://image.tmdb.org/t/p/w200/${imageUrl}`
+          : require("assets/noPosterSmall.png").default
+      }>
       <Wrapper>
-        <p>{year.substring(0, 4)}</p>
+        <p>{year}</p>
         <p>{rating}</p>
         <h3>{title}</h3>
       </Wrapper>
