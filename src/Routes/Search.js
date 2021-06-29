@@ -82,6 +82,8 @@ const Search = () => {
     }
   };
 
+  if (error) return <div>불러오기 중 에러가 발생했습니다.</div>;
+
   return (
     <>
       <Container>
@@ -92,7 +94,6 @@ const Search = () => {
             type="text"
             placeholder="검색어를 입력하세요..."
           />
-          <button type="submit">search</button>
         </Form>
       </Container>
       {!movieResults && !tvResults ? null : loading ? (

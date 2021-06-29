@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-image: url(${(props) => props.bgUrl});
-  width: 130px;
+  width: 150px;
   height: 230px;
   background-size: cover;
   background-position: center center;
@@ -40,20 +41,27 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function Poster({ id, imageUrl, title, rating, year }) {
+export default function Poster({ id, imageUrl, title, rating, year, isMovie }) {
   return (
-    <Container
-      key={id}
-      bgUrl={
-        imageUrl
-          ? `https://image.tmdb.org/t/p/w200/${imageUrl}`
-          : require("assets/noPosterSmall.png").default
+    <Link
+      to={
+        isMovie
+          ? { pathname: `/movies/detail/${id}`, state: { isMovie: true } }
+          : { pathname: `/tv/detail/${id}`, state: { isMovie: false } }
       }>
-      <Wrapper>
-        <p>{year}</p>
-        <p>{rating}</p>
-        <h3>{title}</h3>
-      </Wrapper>
-    </Container>
+      <Container
+        key={id}
+        bgUrl={
+          imageUrl
+            ? `https://image.tmdb.org/t/p/w200/${imageUrl}`
+            : require("assets/noPosterSmall.png").default
+        }>
+        <Wrapper>
+          <p>{year}</p>
+          <p>{rating}</p>
+          <h3>{title}</h3>
+        </Wrapper>
+      </Container>
+    </Link>
   );
 }

@@ -47,8 +47,11 @@ export default function TopRated() {
           key={movie.id}
           title={movie.title}
           rating={movie.vote_average}
-          year={movie.release_date.substring(0, 4)}
+          year={
+            movie.release_date ? movie.release_date.substring(0, 4) : "미정"
+          }
           imageUrl={movie.poster_path}
+          isMovie={true}
         />
       ))}
     </Container>
